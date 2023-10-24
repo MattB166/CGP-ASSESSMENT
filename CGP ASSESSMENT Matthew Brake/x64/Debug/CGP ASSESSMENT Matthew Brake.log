@@ -1,4 +1,4 @@
 ﻿  main.cpp
-C:\Users\Matth\Documents\YEAR 2\CGP\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\main.cpp(116,18): warning C4101: 'MagicHeight': unreferenced local variable
-C:\Users\Matth\Documents\YEAR 2\CGP\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\main.cpp(116,6): warning C4101: 'MagicWidth': unreferenced local variable
-  CGP ASSESSMENT Matthew Brake.vcxproj -> C:\Users\Matth\Documents\YEAR 2\CGP\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\x64\Debug\CGP ASSESSMENT Matthew Brake.exe
+C:\Users\Matth\Documents\UNI WORK\Actual Year 2\CGP\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\main.cpp(116,18): warning C4101: 'MagicHeight': unreferenced local variable
+C:\Users\Matth\Documents\UNI WORK\Actual Year 2\CGP\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\main.cpp(116,6): warning C4101: 'MagicWidth': unreferenced local variable
+  CGP ASSESSMENT Matthew Brake.vcxproj -> C:\Users\Matth\Documents\UNI WORK\Actual Year 2\CGP\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\x64\Debug\CGP ASSESSMENT Matthew Brake.exe
