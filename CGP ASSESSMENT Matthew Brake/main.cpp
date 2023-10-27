@@ -4,6 +4,7 @@
 #include "SDL_image.h"
 #include "SDL_ttf.h"
 #include "SDL_mixer.h"
+#include "Tank.h"
 
 
 
@@ -170,7 +171,21 @@ int main(int argc, char* argv[])
 	//	std::cout << "Failed to load image" << SDL_GetError();
 	//}
 
-	SDL_Texture* doorTexture = LoadTexture("Assets/door.png");
+	
+
+	SDL_Texture* TankTexture = LoadTexture("Assets/PNG/Tanks/tankGreen.png");
+	SDL_Texture* BarrelTexture = LoadTexture("Assets/PNG/Tanks/barrelGreen.png");
+
+	int tankWidth = 40;
+	int tankHeight = 35;
+
+	int barrelWidth = 8;
+	int barrelHeight = 25;
+
+	int TankX = 200;
+	int TankY = 200;
+
+	Tank MyTank(g_sdlRenderer, TankTexture, TankX, TankY);
 
 	/*SDL_Surface* image2 = SDL_LoadBMP("Assets/dig10k_penguin.bmp");
 	if (image2 == nullptr)
@@ -197,20 +212,20 @@ int main(int argc, char* argv[])
 */
 
 //load sound effect file
-	Mix_Chunk* coinsSFX = Mix_LoadWAV("Assets/Coin1.wav");
+	Mix_Chunk* coinsSFX = Mix_LoadWAV("Assets/Coin01.wav");
 
 	Mix_Music* music = Mix_LoadMUS("Assets/rng_lo-fi_loop.mp3");
 	//play the music with infinte looping
 	Mix_PlayMusic(music, -1);
 
 
-	SDL_Texture* MagicTexture = SDL_CreateTexture(g_sdlRenderer, SDL_PIXELFORMAT_ARGB32, SDL_TEXTUREACCESS_TARGET, 64, 64);
+	SDL_Texture* MagicTexture = SDL_CreateTexture(g_sdlRenderer, SDL_PIXELFORMAT_ARGB32, SDL_TEXTUREACCESS_TARGET, 64, 64); //creating own texture 
 
-	SDL_SetRenderTarget(g_sdlRenderer, MagicTexture);
+	SDL_SetRenderTarget(g_sdlRenderer, MagicTexture); //MAGIC TEXTURE COULD BE USEFUL AS LANDMINES  
 
 	SDL_SetRenderDrawColor(g_sdlRenderer, 0, 255, 0, 255);
 	SDL_Rect BoxDST = { 16,16,32,32 };
-	SDL_RenderFillRect(g_sdlRenderer, &BoxDST);
+	SDL_RenderFillRect(g_sdlRenderer, &BoxDST); //renders texture to the display 
 
 	SDL_SetRenderTarget(g_sdlRenderer, NULL);
 
@@ -249,25 +264,31 @@ int main(int argc, char* argv[])
 				}
 				else if (sdlEvent.key.keysym.sym == SDLK_a || sdlEvent.key.keysym.sym == SDLK_LEFT)
 				{
-					--MagicX;
-					std::cout << " X value of magic texture is: " << MagicX << std::endl;
+					//--MagicX;
+					--TankX;
+					/*MyTank.MoveLeft();
+					MyTank.Render();*/
+					std::cout << " X value of Tank is: " << TankX << std::endl;
 				}
 				else if (sdlEvent.key.keysym.sym == SDLK_d || sdlEvent.key.keysym.sym == SDLK_RIGHT)
 				{
-					++MagicX;
-					std::cout << " X value of magic texture is: " << MagicX << std::endl;
+					//++MagicX;
+					++TankX;
+					std::cout << " X value of Tank is: " << TankX << std::endl;
 				}
 				else if (sdlEvent.key.keysym.sym == SDLK_w || sdlEvent.key.keysym.sym == SDLK_UP)
 				{
-					--MagicY;
-					std::cout << "Y Value of magic texture is: " << MagicY << std::endl;
+					//--MagicY;
+					--TankY;
+					std::cout << "Y Value of Tank is: " << TankY << std::endl;
 				}
 				else if (sdlEvent.key.keysym.sym == SDLK_s || sdlEvent.key.keysym.sym == SDLK_DOWN)
 				{
-					++MagicY;
-					std::cout << "Y Value of magic texture is: " << MagicY << std::endl;
+					//++MagicY;
+					++TankY;
+					std::cout << "Y Value of Tank is: " << TankY << std::endl;
 				}
-				else if (sdlEvent.key.keysym.sym == SDLK_ESCAPE)
+				else if (sdlEvent.key.keysym.sym == SDLK_SPACE)
 				{
 					Mix_PlayChannel(-1, coinsSFX, 0);
 				}
@@ -295,8 +316,8 @@ int main(int argc, char* argv[])
 			case SDL_MOUSEMOTION:
 				std::cout << "Current Mouse Position is: " << sdlEvent.motion.x << " , " << sdlEvent.motion.y << std::endl;
 
-				MagicX = sdlEvent.motion.x;
-				MagicY = sdlEvent.motion.y;
+				//MagicX = sdlEvent.motion.x; //locks magicx to mousex position
+				//MagicY = sdlEvent.motion.y; //locks magicy to mousey position
 				break;
 
 
@@ -308,15 +329,19 @@ int main(int argc, char* argv[])
 		SDL_SetRenderDrawColor(g_sdlRenderer, 19, 47, 209, 255);
 		SDL_RenderClear(g_sdlRenderer);
 
-		//create destination for where the image will be copied{x,y,w,h}
+		//create destination for where the image will be copied{x,y,w,h} 
 		SDL_Rect destinationRect{ 25,25,16,16 };
 		SDL_Rect destinationRect2{ 50,50,20,20 };
-		SDL_Rect destinationRect3{ MagicX - 10, MagicY - 10,20,20 };
+		SDL_Rect destinationRect3{ MagicX - 10, MagicY - 10,20,20 }; //centres mouse to middle of texture with the -10's 
 		SDL_Rect fontDestRect{ 25,100,300,32 };
+		SDL_Rect TankRect{ TankX,TankY,tankWidth,tankHeight }; 
+		int barrelX = TankRect.x + (TankRect.w - barrelWidth) / 2;
+		int barrelY = TankRect.y + TankRect.h / 2; //locking bottom of barrel to centre of tank 
+		SDL_Rect barrelRect{ barrelX,barrelY,barrelWidth,barrelHeight };
 
-
-		//copy texture onto rendering target
-		SDL_RenderCopy(g_sdlRenderer, doorTexture, NULL, &destinationRect);
+		//copy texture onto rendering target at specified locations 
+		SDL_RenderCopy(g_sdlRenderer, TankTexture, NULL, &TankRect);
+		SDL_RenderCopy(g_sdlRenderer, BarrelTexture, NULL, &barrelRect);
 		SDL_RenderCopy(g_sdlRenderer, penguinTexture, NULL, &destinationRect2);
 		SDL_RenderCopy(g_sdlRenderer, MagicTexture, NULL, &destinationRect3);
 		SDL_RenderCopy(g_sdlRenderer, textTexture, NULL, &fontDestRect);
@@ -338,7 +363,8 @@ int main(int argc, char* argv[])
 	
 
 	//clean up
-	SDL_DestroyTexture(doorTexture);
+	SDL_DestroyTexture(TankTexture);
+	SDL_DestroyTexture(BarrelTexture);
 	SDL_DestroyTexture(penguinTexture);
 	Mix_FreeChunk(coinsSFX);
 	Mix_FreeMusic(music);
