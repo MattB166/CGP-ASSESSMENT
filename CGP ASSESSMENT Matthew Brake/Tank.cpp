@@ -1,51 +1,85 @@
 #include "Tank.h"
 #include "SDL.h"
+#include <iostream>
 
-Tank::Tank(SDL_Renderer* renderer, SDL_Texture* texture, int x, int y) 
+
+
+Tank::Tank(SDL_Texture* baseTexture, SDL_Texture* barrelTexture)
 {
-	Renderer = renderer;
-	Texture = texture; 
-	X = x;
-	Y = y; 
+	m_texture = baseTexture; 
+	m_barrelTexture = barrelTexture;
+	std::cout << "Tank Created" << std::endl;
+	m_w = 40;
+	m_h = 35;
+	m_x = 50;
+	m_y = 50;
+	
 }
+
+
 
 int Tank::MoveUp()
 {
-	--Y;
-	return Y;
+	--m_y;
+	return m_y;
 }
 
 int Tank::MoveDown()
 {
-	++Y;
-	return Y;
+	++m_y;
+	return m_y;
 }
 
 int Tank::MoveLeft()
 {
-	--X;
-	return X;
+	--m_x;
+	return m_x;
 }
 
 
 int Tank::MoveRight()
 {
-	++X;
-	return X; 
+	++m_x;
+	return m_x; 
 }
 
 int Tank::GetXValue() const
 {
-	return X;
+	return m_x;
 }
 
 int Tank::GetYValue() const
 {
-	return Y;
+	return m_x;
 }
 
-void Tank::Render()
+void Tank::Draw(SDL_Renderer* renderer)
 {
-	SDL_Rect tankRect{ X,Y,tankWidth,tankHeight };
-	SDL_RenderCopy(Renderer, Texture, NULL, &tankRect);
+	GameObject::Draw(renderer);
+	int x = m_x + m_w / 2 - 8 / 2; /// setting barrel width 
+	int y = m_y + m_h / 2;  ///setting barrel height 
+	SDL_Rect dstRect{ x ,y ,m_w / 5,m_h / 1.3 }; //sets barrel dest to correct position
+	SDL_RenderCopy(renderer, m_barrelTexture, NULL, &dstRect); /// renders to renderer 
+
+
 }
+
+void Tank::changeTexture(SDL_Texture* baseTexture, SDL_Texture* newTexture)  ////changes texture on command between 2, useful for landmines flashing 
+{
+	if (m_texture != newTexture)
+	{
+		m_texture = newTexture;
+		GameObject::Draw(renderer);
+	}
+	else
+	{
+		m_texture = baseTexture;
+		GameObject::Draw(renderer);
+	}
+
+	
+}
+
+
+
+

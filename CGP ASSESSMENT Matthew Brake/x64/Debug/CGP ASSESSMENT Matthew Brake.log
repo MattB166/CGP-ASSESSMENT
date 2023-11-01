@@ -1,4 +1,18 @@
-﻿  main.cpp
-C:\Users\Matth\Documents\YEAR 2\CGP\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\main.cpp(235,18): warning C4101: 'MagicHeight': unreferenced local variable
-C:\Users\Matth\Documents\YEAR 2\CGP\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\main.cpp(235,6): warning C4101: 'MagicWidth': unreferenced local variable
-  CGP ASSESSMENT Matthew Brake.vcxproj -> C:\Users\Matth\Documents\YEAR 2\CGP\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\x64\Debug\CGP ASSESSMENT Matthew Brake.exe
+﻿  Tank.cpp
+C:\Users\5BRAKM58\Downloads\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\Tank.cpp(22,9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\5BRAKM58\Downloads\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\Tank.cpp(28,9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\5BRAKM58\Downloads\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\Tank.cpp(34,9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\5BRAKM58\Downloads\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\Tank.cpp(41,9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\5BRAKM58\Downloads\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\Tank.cpp(46,9): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+C:\Users\5BRAKM58\Downloads\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\Tank.cpp(51,9): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+C:\Users\5BRAKM58\Downloads\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\Tank.cpp(57,8): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\5BRAKM58\Downloads\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\Tank.cpp(58,8): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\5BRAKM58\Downloads\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\Tank.cpp(59,30): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\5BRAKM58\Downloads\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\Tank.cpp(59,30): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\5BRAKM58\Downloads\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\Tank.cpp(59,38): warning C4838: conversion from 'double' to 'int' requires a narrowing conversion
+C:\Users\5BRAKM58\Downloads\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\Tank.cpp(59,38): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  main.cpp
+C:\Users\5BRAKM58\Downloads\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\main.cpp(241,18): warning C4101: 'MagicHeight': unreferenced local variable
+C:\Users\5BRAKM58\Downloads\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\main.cpp(241,6): warning C4101: 'MagicWidth': unreferenced local variable
+  Generating Code...
+  CGP ASSESSMENT Matthew Brake.vcxproj -> C:\Users\5BRAKM58\Downloads\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\x64\Debug\CGP ASSESSMENT Matthew Brake.exe

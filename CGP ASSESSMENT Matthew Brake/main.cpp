@@ -185,7 +185,13 @@ int main(int argc, char* argv[])
 	int TankX = 200;
 	int TankY = 200;
 
-	Tank MyTank(g_sdlRenderer, TankTexture, TankX, TankY);
+	//Tank MyTank(g_sdlRenderer, TankTexture, TankX, TankY);
+
+	Tank PlayerTank(TankTexture,BarrelTexture);
+	
+
+
+
 
 	/*SDL_Surface* image2 = SDL_LoadBMP("Assets/dig10k_penguin.bmp");
 	if (image2 == nullptr)
@@ -238,10 +244,12 @@ int main(int argc, char* argv[])
 
 
 
-
+	Uint32 previousFrameTicks = SDL_GetTicks();
 
 	while (keepRunning)
 	{
+		float deltaTime = (SDL_GetTicks() - (float)(previousFrameTicks)) / 1000;
+		previousFrameTicks = SDL_GetTicks();
 		SDL_Event sdlEvent;   //logs event queue  
 		while (SDL_PollEvent(&sdlEvent))
 		{
@@ -265,32 +273,39 @@ int main(int argc, char* argv[])
 				else if (sdlEvent.key.keysym.sym == SDLK_a || sdlEvent.key.keysym.sym == SDLK_LEFT)
 				{
 					//--MagicX;
-					--TankX;
+					//--TankX;
+					PlayerTank.MoveLeft();
 					/*MyTank.MoveLeft();
 					MyTank.Render();*/
-					std::cout << " X value of Tank is: " << TankX << std::endl;
+					std::cout << " X value of Tank is: " << PlayerTank.GetXValue() << std::endl;
 				}
 				else if (sdlEvent.key.keysym.sym == SDLK_d || sdlEvent.key.keysym.sym == SDLK_RIGHT)
 				{
 					//++MagicX;
-					++TankX;
-					std::cout << " X value of Tank is: " << TankX << std::endl;
+					//++TankX;
+					//PlayerTank.MoveRight();
+					PlayerTank.m_x += 200 * deltaTime; ///need this inside game logic to then call above function 
+					std::cout << " X value of Tank is: " << PlayerTank.GetXValue() << std::endl;
 				}
 				else if (sdlEvent.key.keysym.sym == SDLK_w || sdlEvent.key.keysym.sym == SDLK_UP)
 				{
 					//--MagicY;
-					--TankY;
-					std::cout << "Y Value of Tank is: " << TankY << std::endl;
+					//--TankY;
+					PlayerTank.MoveUp();
+					std::cout << "Y Value of Tank is: " << PlayerTank.GetYValue() << std::endl;
 				}
 				else if (sdlEvent.key.keysym.sym == SDLK_s || sdlEvent.key.keysym.sym == SDLK_DOWN)
 				{
 					//++MagicY;
-					++TankY;
-					std::cout << "Y Value of Tank is: " << TankY << std::endl;
+					//++TankY;
+					PlayerTank.MoveDown();
+					std::cout << "Y Value of Tank is: " << PlayerTank.GetYValue() << std::endl;
 				}
 				else if (sdlEvent.key.keysym.sym == SDLK_SPACE)
 				{
 					Mix_PlayChannel(-1, coinsSFX, 0);
+					////tank shoot going here 
+					PlayerTank.changeTexture(TankTexture, MagicTexture);
 				}
 				
 
@@ -316,8 +331,8 @@ int main(int argc, char* argv[])
 			case SDL_MOUSEMOTION:
 				std::cout << "Current Mouse Position is: " << sdlEvent.motion.x << " , " << sdlEvent.motion.y << std::endl;
 
-				//MagicX = sdlEvent.motion.x; //locks magicx to mousex position
-				//MagicY = sdlEvent.motion.y; //locks magicy to mousey position
+				MagicX = sdlEvent.motion.x; //locks magicx to mousex position
+				MagicY = sdlEvent.motion.y; //locks magicy to mousey position
 				break;
 
 
@@ -326,22 +341,25 @@ int main(int argc, char* argv[])
 			}
 		}
 
-		SDL_SetRenderDrawColor(g_sdlRenderer, 19, 47, 209, 255);
+		SDL_SetRenderDrawColor(g_sdlRenderer, 19, 47, 209, 255);   ////sets background colour 
 		SDL_RenderClear(g_sdlRenderer);
+
+
+		PlayerTank.Draw(g_sdlRenderer);
 
 		//create destination for where the image will be copied{x,y,w,h} 
 		SDL_Rect destinationRect{ 25,25,16,16 };
 		SDL_Rect destinationRect2{ 50,50,20,20 };
 		SDL_Rect destinationRect3{ MagicX - 10, MagicY - 10,20,20 }; //centres mouse to middle of texture with the -10's 
 		SDL_Rect fontDestRect{ 25,100,300,32 };
-		SDL_Rect TankRect{ TankX,TankY,tankWidth,tankHeight }; 
-		int barrelX = TankRect.x + (TankRect.w - barrelWidth) / 2;
-		int barrelY = TankRect.y + TankRect.h / 2; //locking bottom of barrel to centre of tank 
-		SDL_Rect barrelRect{ barrelX,barrelY,barrelWidth,barrelHeight };
+		//SDL_Rect TankRect{ TankX,TankY,tankWidth,tankHeight }; 
+		//int barrelX = TankRect.x + (TankRect.w - barrelWidth) / 2;
+		//int barrelY = TankRect.y + TankRect.h / 2; //locking bottom of barrel to centre of tank 
+		//SDL_Rect barrelRect{ barrelX,barrelY,barrelWidth,barrelHeight };
 
 		//copy texture onto rendering target at specified locations 
-		SDL_RenderCopy(g_sdlRenderer, TankTexture, NULL, &TankRect);
-		SDL_RenderCopy(g_sdlRenderer, BarrelTexture, NULL, &barrelRect);
+		//SDL_RenderCopy(g_sdlRenderer, TankTexture, NULL, &TankRect);
+		//SDL_RenderCopy(g_sdlRenderer, BarrelTexture, NULL, &barrelRect);
 		SDL_RenderCopy(g_sdlRenderer, penguinTexture, NULL, &destinationRect2);
 		SDL_RenderCopy(g_sdlRenderer, MagicTexture, NULL, &destinationRect3);
 		SDL_RenderCopy(g_sdlRenderer, textTexture, NULL, &fontDestRect);
