@@ -15,5 +15,6 @@ public:
 	SDL_Renderer* renderer;
 
 	virtual void Draw(SDL_Renderer* renderer);
+	virtual void Destroy();
 };
 

@@ -50,7 +50,7 @@ int Tank::GetXValue() const
 
 int Tank::GetYValue() const
 {
-	return m_x;
+	return m_y;
 }
 
 void Tank::Draw(SDL_Renderer* renderer)
