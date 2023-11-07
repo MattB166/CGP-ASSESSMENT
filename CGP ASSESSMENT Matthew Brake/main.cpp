@@ -5,6 +5,7 @@
 #include "SDL_ttf.h"
 #include "SDL_mixer.h"
 #include "Tank.h"
+#include "TankSpawner.h"
 
 
 
@@ -190,7 +191,8 @@ int main(int argc, char* argv[])
 	Tank PlayerTank(TankTexture,BarrelTexture);
 	
 
-
+	TankSpawner enemytank;
+	enemytank.SpawnTank(10);
 
 
 	/*SDL_Surface* image2 = SDL_LoadBMP("Assets/dig10k_penguin.bmp");

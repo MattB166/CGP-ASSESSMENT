@@ -4,6 +4,10 @@
 
 
 
+Tank::Tank()
+{
+}
+
 Tank::Tank(SDL_Texture* baseTexture, SDL_Texture* barrelTexture)
 {
 	m_texture = baseTexture; 

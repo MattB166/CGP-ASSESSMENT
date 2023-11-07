@@ -4,6 +4,7 @@
 class Tank : public GameObject
 {
 public:
+	Tank();
 	Tank(SDL_Texture* baseTexture, SDL_Texture* barrelTexture);
 	int MoveUp();
 	int MoveDown();
