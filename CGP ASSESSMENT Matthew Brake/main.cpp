@@ -6,7 +6,9 @@
 #include "SDL_mixer.h"
 #include "Tank.h"
 #include "TankSpawner.h"
-
+#include "Collision.h"
+#include "Collider.h"
+#include "BoxCollider.h"
 
 
 
@@ -191,10 +193,28 @@ int main(int argc, char* argv[])
 	Tank PlayerTank(TankTexture,BarrelTexture);
 	
 
-	TankSpawner enemytank;
-	enemytank.SpawnTank(3);
+	TankSpawner enemytanks(TankTexture, BarrelTexture);
+
+	enemytanks.SpawnTank(4);
+
 	
 	
+	
+	if (Collision::CircleCollision(2, 3, 1, 3, 2, 0.5f))   //testing circle collision 
+	{
+		std::cout << "overlap detected" << std::endl; 
+	}
+
+	if (Collision::SquareCollision(PlayerTank.boxCollider, enemytanks.enemyCollider))
+	{
+		std::cout << "Clash" << std::endl; 
+	}
+	else
+	{
+		std::cout << "No Clash" << std::endl; 
+	}
+
+
 
 	/*SDL_Surface* image2 = SDL_LoadBMP("Assets/dig10k_penguin.bmp");
 	if (image2 == nullptr)

@@ -1,6 +1,11 @@
 #pragma once
 #include "GameObject.h"
 
+enum Controller
+{
+	Player, Enemy
+};
+
 class Tank : public GameObject
 {
 public:
@@ -19,6 +24,11 @@ public:
 private:
 	
 	SDL_Texture* m_barrelTexture; 
+	Controller TankType;
+	int tankID;
+	
+
+	
 
 	/*int X;
 	int Y;

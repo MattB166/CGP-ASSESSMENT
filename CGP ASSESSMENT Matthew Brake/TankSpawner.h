@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "SDL.h"
+#include "BoxCollider.h"
 
 
 class Tank;
@@ -12,6 +13,7 @@ public:
 	TankSpawner(SDL_Texture* BaseTexture, SDL_Texture* BarrelTexture);
 	void SpawnTank(int amountOfTanks);
 	void DrawTanks(SDL_Renderer* renderer);
+	BoxCollider enemyCollider;
 	
 	
 	
@@ -19,7 +21,7 @@ public:
 
 private:
 
-	std::vector<Tank> spawnedTanks; 
+	std::vector<Tank*> spawnedTanks; 
 	SDL_Texture* enemyBaseTexture; 
 	SDL_Texture* enemyBarrelTexture; 
 	SDL_Renderer* renderer;

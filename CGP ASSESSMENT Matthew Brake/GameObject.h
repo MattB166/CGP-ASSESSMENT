@@ -1,5 +1,6 @@
 #pragma once
 #include "SDL.h"
+#include "BoxCollider.h"
 class GameObject
 {
 
@@ -13,7 +14,7 @@ public:
 	float m_h = 0;
 	SDL_Texture* m_texture = nullptr;
 	SDL_Renderer* renderer;
-
+	BoxCollider boxCollider;
 	virtual void Draw(SDL_Renderer* renderer);
 	virtual void Destroy();
 };

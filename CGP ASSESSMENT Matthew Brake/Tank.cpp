@@ -6,6 +6,7 @@
 
 Tank::Tank()
 {
+	
 }
 
 Tank::Tank(SDL_Texture* baseTexture, SDL_Texture* barrelTexture)
@@ -17,6 +18,10 @@ Tank::Tank(SDL_Texture* baseTexture, SDL_Texture* barrelTexture)
 	m_h = 35;
 	m_x = 50;
 	m_y = 50;
+	boxCollider.m_height = 35;
+	boxCollider.m_width = 40;
+	/////need to set min and max x and y values for collision function 
+	
 	
 }
 
