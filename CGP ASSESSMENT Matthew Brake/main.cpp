@@ -192,8 +192,9 @@ int main(int argc, char* argv[])
 	
 
 	TankSpawner enemytank;
-	enemytank.SpawnTank(10);
-
+	enemytank.SpawnTank(3);
+	
+	
 
 	/*SDL_Surface* image2 = SDL_LoadBMP("Assets/dig10k_penguin.bmp");
 	if (image2 == nullptr)

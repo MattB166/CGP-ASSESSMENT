@@ -9,6 +9,12 @@ TankSpawner::TankSpawner()
 	
 }
 
+TankSpawner::TankSpawner(SDL_Texture* BaseTexture, SDL_Texture* BarrelTexture)
+{
+	enemyBaseTexture = BaseTexture;
+	enemyBarrelTexture = BarrelTexture; 
+}
+
 
 
 void TankSpawner::SpawnTank(int amountOfTanks)
@@ -17,6 +23,7 @@ void TankSpawner::SpawnTank(int amountOfTanks)
 	{
 		Tank enemyTank;
 		spawnedTanks.push_back(enemyTank);
+		
 
 		std::cout << "Tanks Created: " << spawnedTanks.size() << std::endl; 
 	}
@@ -24,9 +31,12 @@ void TankSpawner::SpawnTank(int amountOfTanks)
 
 }
 
-void TankSpawner::DrawTanks()
+void TankSpawner::DrawTanks(SDL_Renderer* renderer)
 {
-
+	for (Tank& tank : spawnedTanks)
+	{
+		tank.Draw(renderer);
+	}
 }
 
 

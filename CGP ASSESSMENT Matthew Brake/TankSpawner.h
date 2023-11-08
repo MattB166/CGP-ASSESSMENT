@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include "SDL.h"
 
 
 class Tank;
@@ -8,8 +9,9 @@ class TankSpawner
 public:
 
 	TankSpawner();
+	TankSpawner(SDL_Texture* BaseTexture, SDL_Texture* BarrelTexture);
 	void SpawnTank(int amountOfTanks);
-	void DrawTanks();
+	void DrawTanks(SDL_Renderer* renderer);
 	
 	
 	
