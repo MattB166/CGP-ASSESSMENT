@@ -1,4 +1,15 @@
-﻿  main.cpp
+﻿  EnemyTankSpawner.cpp
+  GameObject.cpp
+C:\Users\Matth\Documents\YEAR 2\CGP\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\GameObject.cpp(15,20): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Matth\Documents\YEAR 2\CGP\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\GameObject.cpp(15,20): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Matth\Documents\YEAR 2\CGP\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\GameObject.cpp(15,24): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Matth\Documents\YEAR 2\CGP\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\GameObject.cpp(15,24): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Matth\Documents\YEAR 2\CGP\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\GameObject.cpp(15,28): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Matth\Documents\YEAR 2\CGP\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\GameObject.cpp(15,28): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Matth\Documents\YEAR 2\CGP\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\GameObject.cpp(15,32): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Matth\Documents\YEAR 2\CGP\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\GameObject.cpp(15,32): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  main.cpp
 C:\Users\Matth\Documents\YEAR 2\CGP\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\main.cpp(275,18): warning C4101: 'MagicHeight': unreferenced local variable
 C:\Users\Matth\Documents\YEAR 2\CGP\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\main.cpp(275,6): warning C4101: 'MagicWidth': unreferenced local variable
+  Generating Code...
   CGP ASSESSMENT Matthew Brake.vcxproj -> C:\Users\Matth\Documents\YEAR 2\CGP\CGP-ASSESSMENT\CGP ASSESSMENT Matthew Brake\x64\Debug\CGP ASSESSMENT Matthew Brake.exe

@@ -203,16 +203,16 @@ int main(int argc, char* argv[])
 
 	EnemyTankSpawner* enemyTanks = new EnemyTankSpawner(EnemyTankTexture, enemyBarrelTexture);
 
-	enemyTanks->SpawnTank(4);
+	enemyTanks->SpawnTank();
+	enemyTanks->DrawTanks(g_sdlRenderer);
 	
 	
 	
 	
-	
-	if (Collision::CircleCollision(2, 3, 1, 3, 2, 0.5f))   //testing circle collision 
-	{
-		std::cout << "overlap detected" << std::endl; 
-	}
+	//if (Collision::CircleCollision(2, 3, 1, 3, 2, 0.5f))   //testing circle collision 
+	//{
+	//	std::cout << "overlap detected" << std::endl; 
+	//}
 
 	if (Collision::SquareCollision(PlayerTank.boxCollider, enemyTanks->enemyCollider))
 	{
@@ -312,7 +312,7 @@ int main(int argc, char* argv[])
 					PlayerTank.MoveLeft();
 					/*MyTank.MoveLeft();
 					MyTank.Render();*/
-					std::cout << " X value of Tank is: " << PlayerTank.GetXValue() << std::endl;
+					//std::cout << " X value of Tank is: " << PlayerTank.GetXValue() << std::endl;
 				}
 				else if (sdlEvent.key.keysym.sym == SDLK_d || sdlEvent.key.keysym.sym == SDLK_RIGHT)
 				{
@@ -320,21 +320,21 @@ int main(int argc, char* argv[])
 					//++TankX;
 					//PlayerTank.MoveRight();
 					PlayerTank.m_x += 200 * deltaTime; ///need this inside game logic to then call above function 
-					std::cout << " X value of Tank is: " << PlayerTank.GetXValue() << std::endl;
+					//std::cout << " X value of Tank is: " << PlayerTank.GetXValue() << std::endl;
 				}
 				else if (sdlEvent.key.keysym.sym == SDLK_w || sdlEvent.key.keysym.sym == SDLK_UP)
 				{
 					//--MagicY;
 					//--TankY;
 					PlayerTank.MoveUp();
-					std::cout << "Y Value of Tank is: " << PlayerTank.GetYValue() << std::endl;
+					//std::cout << "Y Value of Tank is: " << PlayerTank.GetYValue() << std::endl;
 				}
 				else if (sdlEvent.key.keysym.sym == SDLK_s || sdlEvent.key.keysym.sym == SDLK_DOWN)
 				{
 					//++MagicY;
 					//++TankY;
 					PlayerTank.MoveDown();
-					std::cout << "Y Value of Tank is: " << PlayerTank.GetYValue() << std::endl;
+					//std::cout << "Y Value of Tank is: " << PlayerTank.GetYValue() << std::endl;
 				}
 				else if (sdlEvent.key.keysym.sym == SDLK_SPACE)
 				{
