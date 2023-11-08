@@ -75,6 +75,7 @@ void Tank::Draw(SDL_Renderer* renderer)
 
 
 
+
 void Tank::changeTexture(SDL_Texture* baseTexture, SDL_Texture* newTexture)  ////changes texture on command between 2, useful for landmines flashing 
 {
 	if (m_texture != newTexture)

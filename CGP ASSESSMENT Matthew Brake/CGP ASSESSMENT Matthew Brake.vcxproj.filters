@@ -24,7 +24,7 @@
     <ClCompile Include="GameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TankSpawner.cpp">
+    <ClCompile Include="EnemyTankSpawner.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Collision.cpp">
@@ -44,7 +44,7 @@
     <ClInclude Include="GameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TankSpawner.h">
+    <ClInclude Include="EnemyTankSpawner.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Collision.h">

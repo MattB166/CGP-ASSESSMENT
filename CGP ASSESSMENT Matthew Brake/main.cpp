@@ -5,7 +5,7 @@
 #include "SDL_ttf.h"
 #include "SDL_mixer.h"
 #include "Tank.h"
-#include "TankSpawner.h"
+#include "EnemyTankSpawner.h"
 #include "Collision.h"
 #include "Collider.h"
 #include "BoxCollider.h"
@@ -179,6 +179,9 @@ int main(int argc, char* argv[])
 	SDL_Texture* TankTexture = LoadTexture("Assets/PNG/Tanks/tankGreen.png");
 	SDL_Texture* BarrelTexture = LoadTexture("Assets/PNG/Tanks/barrelGreen.png");
 
+	SDL_Texture* EnemyTankTexture = LoadTexture("Assets/PNG/Tanks/tankRed.png");
+	SDL_Texture* enemyBarrelTexture = LoadTexture("Assets/PNG/Tanks/barrelRed.png");
+
 	int tankWidth = 40;
 	int tankHeight = 35;
 
@@ -198,10 +201,10 @@ int main(int argc, char* argv[])
 	enemytanks.SpawnTank(4);*/
 
 
-	TankSpawner* enemyTanks = new TankSpawner(TankTexture, BarrelTexture);
+	EnemyTankSpawner* enemyTanks = new EnemyTankSpawner(EnemyTankTexture, enemyBarrelTexture);
 
 	enemyTanks->SpawnTank(4);
-	enemyTanks->DrawTanks(g_sdlRenderer);
+	
 	
 	
 	
@@ -214,6 +217,8 @@ int main(int argc, char* argv[])
 	if (Collision::SquareCollision(PlayerTank.boxCollider, enemyTanks->enemyCollider))
 	{
 		std::cout << "Clash" << std::endl; 
+		std::cout << PlayerTank.boxCollider.x << " , " << PlayerTank.boxCollider.y << std::endl; 
+		std::cout << enemyTanks->enemyCollider.x << " , " << enemyTanks->enemyCollider.y << std::endl; 
 	}
 	else
 	{
