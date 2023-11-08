@@ -19,6 +19,7 @@ public:
 	int GetYValue()const;
 	void Draw(SDL_Renderer* renderer) override;
 	void changeTexture(SDL_Texture* baseTexture, SDL_Texture* newTexture);
+	void SetPosition(int x, int y);
 	
 	
 private:

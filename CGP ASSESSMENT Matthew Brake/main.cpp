@@ -193,10 +193,16 @@ int main(int argc, char* argv[])
 	Tank PlayerTank(TankTexture,BarrelTexture);
 	
 
-	TankSpawner enemytanks(TankTexture, BarrelTexture);
+	/*TankSpawner enemytanks(TankTexture, BarrelTexture);
 
-	enemytanks.SpawnTank(4);
+	enemytanks.SpawnTank(4);*/
 
+
+	TankSpawner* enemyTanks = new TankSpawner(TankTexture, BarrelTexture);
+
+	enemyTanks->SpawnTank(4);
+	enemyTanks->DrawTanks(g_sdlRenderer);
+	
 	
 	
 	
@@ -205,7 +211,7 @@ int main(int argc, char* argv[])
 		std::cout << "overlap detected" << std::endl; 
 	}
 
-	if (Collision::SquareCollision(PlayerTank.boxCollider, enemytanks.enemyCollider))
+	if (Collision::SquareCollision(PlayerTank.boxCollider, enemyTanks->enemyCollider))
 	{
 		std::cout << "Clash" << std::endl; 
 	}
@@ -282,6 +288,7 @@ int main(int argc, char* argv[])
 			*
 			if(keystate)*///start of keystate function 
 
+			
 
 			switch (sdlEvent.type)
 			{
@@ -409,6 +416,7 @@ int main(int argc, char* argv[])
 	SDL_DestroyTexture(penguinTexture);
 	Mix_FreeChunk(coinsSFX);
 	Mix_FreeMusic(music);
+	delete(enemyTanks);
 	
 	cleanup();
 

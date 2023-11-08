@@ -11,9 +11,11 @@ public:
 
 	TankSpawner();
 	TankSpawner(SDL_Texture* BaseTexture, SDL_Texture* BarrelTexture);
+	~TankSpawner();
 	void SpawnTank(int amountOfTanks);
 	void DrawTanks(SDL_Renderer* renderer);
 	BoxCollider enemyCollider;
+	void AssignID();
 	
 	
 	
@@ -25,5 +27,6 @@ private:
 	SDL_Texture* enemyBaseTexture; 
 	SDL_Texture* enemyBarrelTexture; 
 	SDL_Renderer* renderer;
+	int ID; 
 };
 
