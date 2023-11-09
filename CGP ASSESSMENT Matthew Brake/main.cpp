@@ -200,11 +200,11 @@ int main(int argc, char* argv[])
 
 	enemytanks.SpawnTank(4);*/
 
-
 	EnemyTankSpawner* enemyTanks = new EnemyTankSpawner(EnemyTankTexture, enemyBarrelTexture);
 
-	enemyTanks->SpawnTank();
-	enemyTanks->DrawTanks(g_sdlRenderer);
+	enemyTanks->SpawnTank(3);
+	
+	
 	
 	
 	
@@ -292,7 +292,7 @@ int main(int argc, char* argv[])
 			* ++MagicX
 			*
 			if(keystate)*///start of keystate function 
-
+			
 			
 
 			switch (sdlEvent.type)
@@ -381,6 +381,7 @@ int main(int argc, char* argv[])
 
 
 		PlayerTank.Draw(g_sdlRenderer);
+		enemyTanks->DrawTanks(g_sdlRenderer);
 
 		//create destination for where the image will be copied{x,y,w,h} 
 		SDL_Rect destinationRect{ 25,25,16,16 };
